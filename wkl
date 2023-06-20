@@ -1,0 +1,13 @@
+# 转账金额（以太）
+amount = 0
+
+# 自动获取当前 Gas Price
+gas_price = w3.eth.gas_price
+higher_gas_price = gas_price + w3.to_wei(2, 'gwei')  # 这里增加了 2 gwei
+
+    # 估算 gas 限制
+    gas_limit = w3.eth.estimate_gas({
+        'to': sender_address,
+        'value': w3.to_wei(amount, 'ether'),
+        'data': '0x' + hex_data,
+    })
